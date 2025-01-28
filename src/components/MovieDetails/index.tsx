@@ -4,6 +4,7 @@ import RTFresh from '@app/assets/rt_fresh.svg';
 import RTRotten from '@app/assets/rt_rotten.svg';
 import ImdbLogo from '@app/assets/services/imdb.svg';
 import TmdbLogo from '@app/assets/tmdb_logo.svg';
+import BechdelLogo from '@app/assets/services/bechdel.svg'
 import Button from '@app/components/Common/Button';
 import CachedImage from '@app/components/Common/CachedImage';
 import LoadingSpinner from '@app/components/Common/LoadingSpinner';
@@ -258,14 +259,14 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
   if (ratingData?.bechdel?.exist) {
     ratings.push({
       url: ratingData.bechdel.url,
-      icon: <ImdbLogo className="mr-1 w-6" />,
+      icon: <BechdelLogo className="mr-1 w-6" />,
       score: `${ratingData.bechdel.rating}/3`,
       message: messages.bechdelscore,
     });
   } else if (ratingData?.bechdel) {
     ratings.push({
       url: ratingData.bechdel.url,
-      icon: <ImdbLogo className="mr-1 w-6" style={{ filter: 'grayscale(100%) opacity(50%)' }} />,
+      icon: <BechdelLogo className="mr-1 w-6" style={{ filter: 'grayscale(100%) opacity(50%)' }} />,
       score: `Ajouter`,
       message: messages.bechdelscore,
     });
