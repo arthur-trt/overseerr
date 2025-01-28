@@ -282,6 +282,7 @@
   "components.MovieDetails.studio": "{studioCount, plural, one {Studio} other {Studios}}",
   "components.MovieDetails.theatricalrelease": "Theatrical Release",
   "components.MovieDetails.tmdbuserscore": "TMDB User Score",
+  "components.MovieDetails.bechdelscore": "Bechdel Score",
   "components.MovieDetails.viewfullcrew": "View Full Crew",
   "components.MovieDetails.watchtrailer": "Watch Trailer",
   "components.NotificationTypeSelector.adminissuecommentDescription": "Get notified when other users comment on issues.",

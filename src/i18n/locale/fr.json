@@ -1055,6 +1055,7 @@
   "components.MovieDetails.rtaudiencescore": "Note d'audience de Rotten Tomatoes",
   "components.MovieDetails.rtcriticsscore": "Rotten Tomatoes Tomatomètre",
   "components.MovieDetails.tmdbuserscore": "Note des utilisateurs TMDB",
+  "components.MovieDetails.bechdelscore": "Bechdel Score",
   "components.PermissionEdit.viewwatchlistsDescription": "Autorise à voir la Watchlist Plex des autres utilisateurs.",
   "components.RequestBlock.approve": "Approuver la demande",
   "components.RequestBlock.decline": "Refuser la demande",

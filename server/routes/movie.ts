@@ -1,3 +1,4 @@
+import BechdelProxy from '@server/api/rating/bechdelProxy';
 import IMDBRadarrProxy from '@server/api/rating/imdbRadarrProxy';
 import RottenTomatoes from '@server/api/rating/rottentomatoes';
 import { type RatingResponse } from '@server/api/ratings';
@@ -163,6 +164,7 @@ movieRoutes.get('/:id/ratingscombined', async (req, res, next) => {
   const tmdb = new TheMovieDb();
   const rtapi = new RottenTomatoes();
   const imdbApi = new IMDBRadarrProxy();
+  const bechdelApi = new BechdelProxy();
 
   try {
     const movie = await tmdb.getMovie({
@@ -175,7 +177,9 @@ movieRoutes.get('/:id/ratingscombined', async (req, res, next) => {
     );
 
     let imdbRatings;
+    let bechdelrating;
     if (movie.imdb_id) {
+      bechdelrating = await bechdelApi.getMovieRatings(movie.imdb_id);
       imdbRatings = await imdbApi.getMovieRatings(movie.imdb_id);
     }
 
@@ -189,6 +193,7 @@ movieRoutes.get('/:id/ratingscombined', async (req, res, next) => {
     const ratings: RatingResponse = {
       ...(rtratings ? { rt: rtratings } : {}),
       ...(imdbRatings ? { imdb: imdbRatings } : {}),
+      ...(bechdelrating ? { bechdel: bechdelrating } : {}),
     };
 
     return res.status(200).json(ratings);
